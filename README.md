@@ -4,6 +4,13 @@
 
 A production-grade multi-agent customer support system built with the [Strands Agents SDK](https://github.com/strands-agents/sdk-python) and Amazon Bedrock AgentCore. The system automatically routes customer support requests to specialist agents, retrieves grounded knowledge via **parallel multi-agent RAG**, enforces enterprise safety guardrails, and maintains shared workflow state across agents - all observable through CloudWatch and X-Ray.
 
+The graded implementation is complete in `src/agent_orchestrator.py`. Follow the
+[end-to-end execution guide](docs/PROJECT_EXECUTION_GUIDE.md) for deployment,
+verification, screenshots, and the final 120-point rubric audit. Store
+submission screenshots using the [evidence checklist](evidence/README.md). The
+[verification report](docs/VERIFICATION_REPORT.md) records the latest audited
+status against the rubric.
+
 <img width="1140" height="824" alt="NovaMart architecture overview" src="diagrams/architecture-overview.png" />
 
 
@@ -81,7 +88,10 @@ Shared State: DynamoDB WorkflowStateTable (with optimistic locking)
 
 ## Setup
 
-This is the unfinished student starter: complete the TODOs in `src/agent_orchestrator.py`. The CLI configuration and support modules are provided infrastructure, not exercise solutions. Runtime deployment and runtime configuration updates use AgentCore CLI; application service calls still use the AWS SDK.
+The graded TODOs in `src/agent_orchestrator.py` are implemented. The CLI
+configuration and support modules remain provided infrastructure. Runtime
+deployment and runtime configuration updates use AgentCore CLI; application
+service calls still use the AWS SDK.
 
 Use the tested CLI version **0.30.0** shown above. The supplied CDK compatibility fix keeps HTTP explicit in the deployed runtime metadata.
 
