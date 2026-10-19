@@ -6,7 +6,10 @@ A production-grade multi-agent customer support system built with the [Strands A
 
 The graded implementation is complete in `src/agent_orchestrator.py`. Follow the
 [end-to-end execution guide](docs/PROJECT_EXECUTION_GUIDE.md) for deployment,
-verification, screenshots, and the final 120-point rubric audit. Store
+or use the beginner-friendly
+[manual rubric and screenshot guide](docs/MANUAL_RUBRIC_VERIFICATION_GUIDE.md)
+to understand the architecture and verify every item in PowerShell and the AWS
+Console. Store
 submission screenshots using the [evidence checklist](evidence/README.md). The
 [verification report](docs/VERIFICATION_REPORT.md) records the latest audited
 status against the rubric.
