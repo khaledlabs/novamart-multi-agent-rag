@@ -64,6 +64,7 @@ def main() -> int:
         ok = actual == expected
         print(f"{'PASS' if ok else 'FAIL'}  {label:<22} expected={expected:<22} actual={actual}")
         if not ok:
+            print(f"      assessments={response.get('assessments', [])}")
             failed.append(label)
 
     if failed:

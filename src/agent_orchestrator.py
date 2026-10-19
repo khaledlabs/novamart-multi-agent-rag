@@ -1126,9 +1126,12 @@ def create_guardrail() -> tuple[str, str]:
             "NovaMart competitors. General NovaMart product-support questions are allowed."
         ),
         'pricing negotiations': (
-            "Haggling, bargaining, or requests to change, override, or negotiate an "
-            "advertised price. Allow arithmetic that uses an already-specified price, "
-            "quantity, tax, or discount, because calculations are not negotiations."
+            "A customer asks NovaMart to agree to a new price that differs from the "
+            "listed or advertised price. This includes haggling, bargaining, and asking "
+            "a seller to lower, override, or change a price. Exclude all arithmetic and "
+            "calculation questions: totals, multiplication, percentages, sale discounts, "
+            "tax, and calculations using a specified price are allowed and are not "
+            "pricing negotiations."
         ),
         'legal threats': (
             "Threats of lawsuits, regulatory complaints, or other legal action against "
@@ -1139,6 +1142,17 @@ def create_guardrail() -> tuple[str, str]:
         {
             'name': topic.title(),
             'definition': topic_definitions[topic],
+            **(
+                {
+                    'examples': [
+                        'Will you lower the listed price from $100 to $80 for me?',
+                        'I want to haggle; give me a price below the advertised price.',
+                        'Override the store price and sell this item to me for less.',
+                    ]
+                }
+                if topic == 'pricing negotiations'
+                else {}
+            ),
             'type': 'DENY',
         }
         for topic in config.GUARDRAIL_BLOCKED_TOPICS
